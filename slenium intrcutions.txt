@@ -1,0 +1,27 @@
+sudo apt-get install git 
+sudo apt-get install python3.7
+sudo apt-get install python-pip
+sudo apt-get install selenium
+
+sudo bash
+sudo echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
+
+su ubuntu
+wget https://dl.google.com/linux/linux_signing_key.pub
+sudo apt-key add linux_signing_key.pub
+sudo apt update
+sudo apt install google-chrome-stable
+
+wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
+sudo apt-get install unzip
+unzip chromedriver_linux64.zip
+
+sudo mv chromedriver /usr/bin/chromedriver
+sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+
+sudo apt-get install mongodb
+sudo service mongodb start
+
+pip install pymongo
+

@@ -1,0 +1,30 @@
+.team-logo
+{
+  width: 20%;
+  height: auto;
+
+}
+
+.away:hover{
+  background-color:blue;
+  cursor: pointer;
+  color: white;
+
+}
+.home{
+
+}
+td:nth-child(even) {
+  text-align: center;
+  margin: 0 5px 0 5px;
+}
+td:first-child {
+  text-align: left;
+  padding-left:20px;
+}
+td:nth-child(3){
+  text-align:right;
+
+}
+
+

@@ -1,0 +1,49 @@
+<!-- remove for Pickem -->
+    <div *ngIf="afAuth.user | async as user; else showLogin">
+        <h1>Hello {{ user.displayName }}!</h1>
+        <button (click)="logout()">Logout</button>
+       </div>
+
+<ng-template class="ng-template" #showLogin>
+    <div class="signup-form">
+      <form [formGroup]="loginForm"  (ngSubmit)="login()">
+
+          <h2>Log In </h2>
+          <p class="lead">Tempis Fugit</p>
+
+          <!-- email address-->
+            <div class="form-group" [ngClass]="{'alert-danger': loginForm.get('email').errors
+                  && loginForm.get('email').touched}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+              </div>
+              <div class="tool-tip" *ngIf="email.invalid && email.touched">
+                  <span>enter an email</span>
+                </div>
+            </div>
+
+          <!-- password -->
+            <div class="form-group" [ngClass]="{'alert-danger': loginForm.get('password').errors
+                  && loginForm.get('password').touched}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control" formControlName="password" required placeholder="Password">
+              </div>
+                <div class="tool-tip" *ngIf="password.invalid && password.touched">
+                  <span>enter a password</span>
+                </div>
+            </div>
+
+
+
+          <div class="form-group">
+              <button type="submit" [disabled]="!loginForm.valid" class="form-control" class="btn btn-primary btn-block btn-lg">Sign In</button>
+
+              </div>
+          <p class="small text-center">By signing in, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+      </form>
+        <div class="text-center">Don't have an account? <a [routerLink]="['/signUp']" routerLinkActive="router-link-active" > Get One!</a></div>
+    </div>
+</ng-template>
+

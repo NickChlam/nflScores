@@ -1,0 +1,58 @@
+<div class="container">
+
+<button (click)="test()">click me</button>
+  <div *ngFor="let game of games; index as i" class="card">
+    <div class="card-header">
+      {{game.game[1].name}} vs {{game.game[0].name}}
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+          <div class="col-md-4 away" (click)='clicked(game.game[1].name, i)'>
+            <p class="card-text">{{game.game[1].name}} ({{game.game[1].rank}})</p>
+
+            <img class='team-logo' [src]='game.game[1].url'>
+
+          </div>
+          <div class="col-md-4">
+            <h5 class="card-title" >  {{game.game[2].gameTime.network}} {{game.game[2].gameTime.day}} {{game.game[2].gameTime.time}} </h5>
+
+                <table class="card-text">
+                    <tbody>
+                    <tr>
+                      <td>{{game.game[1].name}} </td>
+                      <td>vs</td>
+                      <td>{{game.game[0].name}} </td>
+                    </tr>
+                        <tr>
+                          <td>{{game.game[1].PPG}} </td>
+                          <td>PPG</td>
+                          <td>{{game.game[0].PPG}}</td>
+                        </tr>
+                        <tr>
+                          <td>{{game.game[1].Opp_PPG}}</td>
+                          <td>Opp PPG</td>
+                          <td>{{game.game[0].Opp_PPG}}</td>
+                        </tr>
+                        <tr>
+                          <td>{{game.game[1].Pass_YPG}}</td>
+                          <td>Pass YPG</td>
+                          <td>{{game.game[0].Pass_YPG}}</td>
+                        </tr>
+                        <tr>
+                          <td>{{game.game[1].Rush_YPG}}</td>
+                          <td>Rush YPG</td>
+                          <td>{{game.game[0].Rush_YPG}}</td>
+                        </tr>
+                  </tbody></table>
+          </div>
+          <div class="col-md-4 home" (click)='clicked(game.game[0].name, i)'>
+            <p class="card-text"> {{game.game[0].name}} ( {{game.game[0].rank}} )</p>
+            <img class='team-logo' [src] ='game.game[0].url'>
+
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>

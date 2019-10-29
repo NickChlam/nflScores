@@ -1,0 +1,104 @@
+<ng-container *ngIf="(auth.user | async) || {} as user">
+    
+  <div class="signup-form">	
+    <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
+  
+        <h2>Create Account</h2>
+        <p class="lead">It's free and takes less than 30 seconds.</p>
+        <!-- knownAs / username -->
+          <div class="form-group" [ngClass]="{'alert-danger': signupForm.get('knownAs').errors 
+                && signupForm.get('knownAs').touched}">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input  class="form-control" placeholder="Known as" formControlName="knownAs" required="required">
+            </div>
+          </div>
+
+        <!-- email address-->
+          <div class="form-group" [ngClass]="{'alert-danger': signupForm.get('email').errors 
+                && signupForm.get('email').touched}">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+              <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+            </div>
+          </div>
+
+        <!-- OFFICE -->
+
+        <div class="form-group" [ngClass]="{'alert-danger': signupForm.get('office').errors 
+          && signupForm.get('office').touched}">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-building"></i></span>
+            <select class="form-control" formControlName="office">
+                <option value="" disabled>Office</option>
+              <option *ngFor="let office of offices" value="{{office}}">{{office}}<option>
+            </select>
+          </div>
+          <span class="control-label alert-danger tool-tip" 
+            *ngIf="signupForm.get('office').touched 
+            && signupForm.get('office').hasError('required')">
+            Office Required
+          </span>
+        </div>
+
+        <!-- LOB -->
+
+        <div class="form-group" [ngClass]="{'alert-danger': signupForm.get('LOB').errors 
+        && signupForm.get('LOB').touched}">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+          <select class="form-control" formControlName="LOB">
+            <option value="" disabled>Line of Business</option>
+            <option value="RHT">RHT</option>
+            <option value="TCG">TCG</option>
+            <option value="RHFA">RHFA</option>
+            <option value="RHL">RHL</option>
+          </select>
+        </div>
+        <span class="control-label alert-danger tool-tip" 
+          *ngIf="signupForm.get('office').touched 
+          && signupForm.get('office').hasError('required')">
+          LOB Required
+        </span>
+      </div>
+        
+        <!-- password -->
+        <div class="form-group" [ngClass]="{'alert-danger': signupForm.get('password').errors 
+                && signupForm.get('password').touched}">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="password" class="form-control" formControlName="password" required placeholder="Password">
+          </div>
+          <div class="tool-tip" *ngIf="password.invalid && password.touched">
+              <span>must be 6-24 charachters and contain one number</span>  
+            </div>
+        </div>
+
+        <!-- confirm password-->
+        <div class="form-group"
+            [ngClass]="{'alert-danger': signupForm.get('confirmPassword').errors
+            && signupForm.get('confirmPassword').touched
+            || signupForm.get('confirmPassword').touched
+            && signupForm.hasError('mismatch') } ">
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-lock"></i> 
+              <i class="fa fa-check"></i>
+            </span>
+            <input type="password" class="form-control" formControlName="confirmPassword" required placeholder="confirm password">
+          </div>
+          <div class="tool-tip" *ngIf="signupForm.hasError('mismatch') && signupForm.get('confirmPassword').touched" >
+              <span>password must match </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!signupForm.valid" class="form-control" class="btn btn-primary btn-block btn-lg">Submit</button>
+
+            </div>
+        <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+    </form>
+      <div class="text-center">Already have an account? <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Login here</a>.</div>
+  </div>
+</ng-container>
