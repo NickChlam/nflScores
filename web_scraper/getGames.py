@@ -1,20 +1,29 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import sys
+import json
+import pprint
 from pymongo import MongoClient
-client = MongoClient()
+client = MongoClient('mongodb://localhost:27017/')
 
 
 class NFLScores:
     def __init__(self, *args, **kwargs):
         options = webdriver.ChromeOptions() 
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--no-sandbox')
         options.add_argument('window-size=1400,650')
         options.add_argument('headless')
         self.bot = webdriver.Chrome(options=options)
+        
+        
+
     # TODO: create function to chnage array to objec
         self.matches = []
     
     def getGames(self, week):
+        print('please wait scraping data .... ')
+
         Matches = []
         matchup = []
         home = {
@@ -106,12 +115,10 @@ class NFLScores:
             home = {}
             away = {}
 
+            # TODO REMOVE PRINT
+            print(awayTeamName + ' ' + awayRecord + ' vs. ' + homeTeamName + ' ' + homeRecord)
+
             
-            # print(awayTeamName + ' ' + awayRecord + ' vs. ' + homeTeamName + ' ' + homeRecord)
-
-            # print(self.getMatchup(game))
-
-            # print(self.getUrl(game))
         
             
             
@@ -161,8 +168,8 @@ class NFLScores:
 
         return headline.strip()
 
-
 scores = NFLScores()
+
 # TODO: create dict on football season weeks and have a default set to the current week
 week = sys.argv[1]
 scores.getGames(week)
@@ -170,6 +177,9 @@ scores.getGames(week)
 if scores.matches == []:
     scores.getGames(week)
 
+
+for game in scores.matches:
+    pprint.pprint(game)
 
 
 scores.bot.close()
@@ -189,10 +199,10 @@ for game in scores.matches:
     save = posts.insert_one(post)
 
 
-bills_post = posts.find()
+# bills_post = posts.find()
 
-for post in bills_post:
-    print(post)
+# for post in bills_post:
+#     print(post)
 
 # result = db.posts.delete_many({'author': 'jacl'})
 # print(result.deleted_count)

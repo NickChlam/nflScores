@@ -9,6 +9,7 @@ const games = require('./routes/games')
 const picks = require('./routes/picks')
 const results = require('./routes/results')
 const winner = require('./routes/winner')
+const week= require('./routes/week') 
 
 
 //middleware
@@ -25,6 +26,7 @@ games(app)
 picks(app)
 results(app)
 winner(app)
+week(app)
 
 // listen! 
 const port = 3001

@@ -29,6 +29,7 @@ import { LoginComponent } from './login/login.component';
 
 import { UserResolverService } from './_resolvers/user-resolver.service';
 import { GetUsersResolver } from './_resolvers/get-users-resolver.service';
+import { TimesUpComponent } from './times-up/times-up.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { GetUsersResolver } from './_resolvers/get-users-resolver.service';
     UserFormComponent,
     LoginComponent,
     PickEmComponent,
+    TimesUpComponent,
 
   ],
   imports: [

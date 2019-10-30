@@ -24,3 +24,5 @@ exports.getWeek = async function(req, res) {
     //return games for week 
     return res.status(200).send(games)
 }
+
+

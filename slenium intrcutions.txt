@@ -3,6 +3,11 @@ sudo apt-get install python3.7
 sudo apt-get install python-pip
 sudo apt-get install selenium
 
+
+python -m pip install pymongo
+
+python -m pip
+
 sudo bash
 sudo echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
 

@@ -7,4 +7,7 @@ module.exports = function(app) {
 
     app.route('/games/:week')
         .get(Games.getWeek)
+        
+    
+    
 }

@@ -1,5 +1,5 @@
 version: '2'
-services: 
+services:
     app:
         restart: always
         build:
@@ -11,7 +11,7 @@ services:
         ports:
           - '4200:4200'
           - '49153:49153'
-        
+
 #volumes:
   #app-unison-sync:
     #external: true

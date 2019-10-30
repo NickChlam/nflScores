@@ -3,6 +3,7 @@ const Joi = require('@hapi/joi');
 
 
 exports.getPicks = async function(req, res) {
+    console.log('did it toos')
     const picks = await Pick.find()
         .select('week picks user -_id');
     if(!picks) return res.status(404).send('no data')

@@ -1,13 +1,13 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
 import { AuthService } from '../services/auth.service';
-import { DataService } from '../services/data-service.service';
+
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private alertify: AlertifyService,
               private auth: AuthService,
-              private dataService: DataService
               ) { }
 
   ngOnInit() {
