@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { AngularFireAuth} from '@angular/fire/auth';
 import { Observable, EMPTY } from 'rxjs';
-import { switchMap, map, take } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AlertifyService } from './alertify.service';
 

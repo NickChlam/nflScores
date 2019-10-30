@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { EmailValidator } from '@angular/forms';
-import { mapChildrenIntoArray } from '@angular/router/src/url_tree';
+
 
 @Injectable({
   providedIn: 'root'

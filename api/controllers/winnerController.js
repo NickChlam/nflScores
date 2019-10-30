@@ -16,7 +16,7 @@ exports.getWinner = async function(req, res){
     const winner = await this.calcGames(picks, result, res)
      // TODO: create logic for a tie 
     last = winner.length
-    res.send(winner[last-1])
+    res.status(200).send(winner[last-1])
 }   
 
 exports.getScores = async function (req, res){

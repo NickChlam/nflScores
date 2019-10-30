@@ -16,7 +16,8 @@ const week= require('./routes/week')
 app.use(cors())
 app.use(bodyParser.json())
 
-// database connection
+// database connection 
+// TODO : replace connection string with envirnment vars 
 mongoose.connect('mongodb://localhost:27017/scores', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongoDB'))
     .catch('something went wrong')
