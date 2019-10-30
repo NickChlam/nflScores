@@ -4,7 +4,7 @@ import sys
 import json
 import pprint
 from pymongo import MongoClient
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://mongo:27017/scores')
 
 
 class NFLScores:
@@ -168,35 +168,40 @@ class NFLScores:
 
         return headline.strip()
 
-scores = NFLScores()
-
-# TODO: create dict on football season weeks and have a default set to the current week
-week = sys.argv[1]
-scores.getGames(week)
-
-if scores.matches == []:
-    scores.getGames(week)
-
-
-for game in scores.matches:
-    pprint.pprint(game)
-
-
-scores.bot.close()
-scores.bot.quit()
 
 db = client.scores
+
 posts = db.games
+week = sys.argv[1]
 
 
+data = posts.find({'week' : '7'})
 
+# see if there is data for week.  If not get it 
+try:
+    data.next()
+except Exception as ex:
+    scores = NFLScores()
+    # TODO: create dict on football season weeks and have a default set to the current week
+    scores.getGames(week)
+    if scores.matches == []:
+        scores.getGames(week)
 
-for game in scores.matches:
-    post = {
-        "week" : week,
-        "game" : game
-    }
-    save = posts.insert_one(post)
+    for game in scores.matches:
+        pprint.pprint(game)
+
+    scores.bot.close()
+    scores.bot.quit()
+
+    for game in scores.matches:
+        post = {
+            "week" : week,
+            "game" : game
+        }
+        save = posts.insert_one(post)
+    quit()
+
+print(f'data for week {week} already exists')   
 
 
 # bills_post = posts.find()

@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 
 // database connection 
 // TODO : replace connection string with envirnment vars 
-mongoose.connect('mongodb://localhost:27017/scores', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://mongo:27017/scores', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongoDB'))
     .catch('something went wrong')
 

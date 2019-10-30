@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
     app:
         restart: always
@@ -11,6 +11,7 @@ services:
         ports:
           - '4200:4200'
           - '49153:49153'
+        
 
 #volumes:
   #app-unison-sync:

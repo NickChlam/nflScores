@@ -2,7 +2,7 @@
 exports.getWeek = async function(req,res) {
 
     // set dates for football weeks ( tuesday is first day for picks )
-    const week8 = new Date(2019, 9, 22);
+    
     const week9 = new Date(2019, 9, 29);
     const week10 = new Date(2019, 10, 5);
     const week11 = new Date(2019, 10, 12);
@@ -15,7 +15,7 @@ exports.getWeek = async function(req,res) {
 
     // todays date 
     const date = new Date()
-    date.setDate(date.getDate() + 2)
+    //date.setDate(date.getDate() + 2) 
     
     
     // TODO: better logic to determine if date is between tuesday and thursday at 4pm

@@ -9,6 +9,7 @@ exports.getGames = async function(req, res) {
 
 exports.getWeek = async function(req, res) {
     // get id
+    
     week = req.params.week
     // validate id 
     if (!week) return res.status(404).send('valid id required ')
