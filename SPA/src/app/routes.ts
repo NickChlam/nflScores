@@ -13,8 +13,7 @@ export const appRoutes: Routes = [
     { path: 'pickem', component: PickEmComponent, canActivate: [AuthGuard] },
     { path: 'timesUp', component: TimesUpComponent, canActivate: [AuthGuard]},
     { path: 'complete', component: ConfirmationComponent, canActivate: [AuthGuard]},
-    // { path: 'detail', component: PendDetailComponent, canActivate: [AuthGuard],
-    //      resolve: { data: UserResolverService, users: GetUsersResolver}},
+
 
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

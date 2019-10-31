@@ -5,10 +5,15 @@
 
 }
 
+.container{
+  margin-top: 7%;
+
+}
+
+
 .away:hover{
 
   cursor: pointer;
-
 
 }
 .home:hover{

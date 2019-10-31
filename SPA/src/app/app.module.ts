@@ -20,15 +20,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserFormComponent } from './user-form/user-form.component';
 
-import { DataService } from './services/data-service.service';
+
 import { AuthGuard } from './auth-guard.guard';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 
-import { UserResolverService } from './_resolvers/user-resolver.service';
-import { GetUsersResolver } from './_resolvers/get-users-resolver.service';
+
 import { TimesUpComponent } from './times-up/times-up.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 
@@ -57,7 +56,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     HttpClientModule
 
   ],
-  providers: [DataService, AuthService, AuthGuard, UserResolverService, GetUsersResolver],
+  providers: [ AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

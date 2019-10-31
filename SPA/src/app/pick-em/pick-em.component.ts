@@ -33,7 +33,7 @@ export class PickEmComponent implements OnInit {
     this.gameService.getWeek()
       .subscribe( data => {
         week = data;
-
+        console.log(week.week)
         if (week.week === 'not allowed') { return this.router.navigate(['/timesUp']); }
 
         this.gameService.getGames(week.week)

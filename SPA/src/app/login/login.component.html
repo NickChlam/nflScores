@@ -1,4 +1,5 @@
 <!-- remove for Pickem -->
+<div class="wrapper">
     <div *ngIf="afAuth.user | async as user; else showLogin">
         <h1>Hello {{ user.displayName }}!</h1>
         <button (click)="logout()">Logout</button>
@@ -46,4 +47,5 @@
         <div class="text-center">Don't have an account? <a [routerLink]="['/signUp']" routerLinkActive="router-link-active" > Get One!</a></div>
     </div>
 </ng-template>
+</div>
 
