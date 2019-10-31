@@ -8,14 +8,10 @@ RUN apt-get install git -y \
 
 RUN python -m pip install selenium 
 
-
 RUN python -m pip install pymongo
-
-
 
 RUN bash \
     && echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
-
 
 RUN wget https://dl.google.com/linux/linux_signing_key.pub \
     && apt-key add linux_signing_key.pub \
@@ -28,7 +24,6 @@ RUN unzip chromedriver_linux64.zip \
     && mv chromedriver /usr/bin/chromedriver 
 #     && chown root:root /usr/bin/chromedriver \
 #     && chmod +x /usr/bin/chromedriver 
-
 
 ADD getGames.py ./
 

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GameService} from '../services/game.service';
 import { AuthService} from '../services/auth.service';
-import { weeks } from '../models/weeks';
 import { Router } from '@angular/router';
+
+import { AlertifyService } from '../services/alertify.service';
 
 
 @Component({
@@ -17,10 +18,15 @@ export class PickEmComponent implements OnInit {
   user;
   winResults;
   userPick;
+  awaySelectedIndex = [];
+  homeSelectedIndex = [];
+
+
+
 
 
   // build logic for current week
-  constructor(private gameService: GameService, private auth: AuthService, private router: Router,) { }
+  constructor(private gameService: GameService, private auth: AuthService, private router: Router,private alertify: AlertifyService) { }
 
   ngOnInit() {
     let week;
@@ -49,18 +55,34 @@ export class PickEmComponent implements OnInit {
   clicked(game, index) {
     console.log(game + index);
     this.picks[index] = game;
+
+    console.log(this.awaySelectedIndex[index] )
+    if(this.awaySelectedIndex[index] === false || this.awaySelectedIndex[index]  === undefined ){
+      this.awaySelectedIndex[index] = true;
+      this.homeSelectedIndex[index] = false;
+    } else {
+      this.awaySelectedIndex[index] = false;
+      this.picks[index] = null;
+    }
+
+
+
+  }
+  clickedHome(game, index){
+    this.picks[index] = game;
+
+    if(this.homeSelectedIndex[index] === false || this.homeSelectedIndex[index]  === undefined ){
+      this.homeSelectedIndex[index] = true;
+      this.awaySelectedIndex[index] = false;
+    } else {
+      this.homeSelectedIndex[index] = false;
+      this.picks[index] = null;
+    }
+
   }
   test() {
-    console.log('user picks')
-    console.log(this.userPick)
-    console.log('win results')
-    console.log(this.winResults)
-
-
-    console.log(this.games[0].week);
-    console.log(this.picks);
-
-    if (!this.picks.includes(undefined) && this.picks.length === this.games.length ) {
+    console.log(this.picks)
+    if (!this.picks.includes(undefined) && this.picks.length === this.games.length && !this.picks.includes(null)) {
       console.log('complete');
       // send week and picks to database
       const picked = {
@@ -69,11 +91,17 @@ export class PickEmComponent implements OnInit {
         user: this.user
       };
       console.log(picked);
-      this.gameService.postPick(picked).subscribe(data => {
-        console.log(data)
-      })
 
-    } else { console.log('not complete fill out every game'); }
+      this.gameService.postPick(picked).subscribe( () => {
+        this.alertify.success('Picks Accepted for week ' + this.games[0].week);
+        return this.router.navigate(['/complete']);
+      }, err => this.alertify.error(err));
+
+    } else {
+       this.alertify.error('please fill out every game')
+      console.log('not complete fill out every game');
+    }
+
   }
 
 }

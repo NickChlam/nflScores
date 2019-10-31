@@ -1,21 +1,21 @@
 <div class="container">
 
-<button (click)="test()">click me</button>
+<button id='fixedbutton' (click)="test()">Pick'Em</button>
   <div *ngFor="let game of games; index as i" class="card">
     <div class="card-header">
-      {{game.game[1].name}} vs {{game.game[0].name}}
+      {{ game.game[2].headline}}
     </div>
     <div class="card-body">
 
       <div class="row">
-          <div class="col-md-4 away" (click)='clicked(game.game[1].name, i)'>
-            <p class="card-text">{{game.game[1].name}} ({{game.game[1].rank}})</p>
+          <div class="col-md-4 away" [class.picked]='awaySelectedIndex[i] === true' (click)='clicked(game.game[1].name, i)'>
+            <p class="card-text" >{{game.game[1].name}} <span class='rank'>({{game.game[1].rank}})</span></p>
 
             <img class='team-logo' [src]='game.game[1].url'>
 
           </div>
-          <div class="col-md-4">
-            <h5 class="card-title" >  {{game.game[2].gameTime.network}} {{game.game[2].gameTime.day}} {{game.game[2].gameTime.time}} </h5>
+          <div class="col-md-4 stats">
+            <h6 class="card-title" >  {{game.game[2].gameTime.network}} {{game.game[2].gameTime.day}} {{game.game[2].gameTime.time}} </h6>
 
                 <table class="card-text">
                     <tbody>
@@ -46,8 +46,8 @@
                         </tr>
                   </tbody></table>
           </div>
-          <div class="col-md-4 home" (click)='clicked(game.game[0].name, i)'>
-            <p class="card-text"> {{game.game[0].name}} ( {{game.game[0].rank}} )</p>
+          <div class="col-md-4 home" [class.picked]='homeSelectedIndex[i] === true' (click)='clickedHome(game.game[0].name, i)'>
+            <p class="card-text"> {{game.game[0].name}} <span class="rank"> ( {{game.game[0].rank}} )</span></p>
             <img class='team-logo' [src] ='game.game[0].url'>
 
           </div>

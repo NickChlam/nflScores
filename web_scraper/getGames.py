@@ -4,7 +4,17 @@ import sys
 import json
 import pprint
 from pymongo import MongoClient
-client = MongoClient('mongodb://mongo:27017/scores')
+import platform
+
+
+conn = 'mongodb://mongo:27017/scores'
+
+# is platform windows  
+if platform.system() == 'Windows':
+    conn = 'mongodb://localost:27017/scores'
+
+
+client = MongoClient(conn)
 
 
 class NFLScores:
@@ -18,7 +28,7 @@ class NFLScores:
         
         
 
-    # TODO: create function to chnage array to objec
+    # TODO: create function to chnage array to object
         self.matches = []
     
     def getGames(self, week):
@@ -175,7 +185,7 @@ posts = db.games
 week = sys.argv[1]
 
 
-data = posts.find({'week' : '7'})
+data = posts.find({'week' : week})
 
 # see if there is data for week.  If not get it 
 try:

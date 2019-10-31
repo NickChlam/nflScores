@@ -1,18 +1,20 @@
 
-<nav class="navbar-dark bg-inverse">               
+<nav class="navbar-dark bg-inverse fixed-top">
   <div class="container"  >
-        
-    <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="navbar-brand"><img src="/assets/RH.jpg" alt="" class="img-thumbmail img-fluid float-left"> </a>
+
+    <a [routerLink]="['/pickem']" routerLinkActive="router-link-active" class="navbar-brand"><img src="/assets/RH.jpg" alt="" class="img-thumbmail img-fluid float-left"> <span class="pick">Pick'Em</span></a>
       <ul class="nav navbar-nav ">
           <li class="nav-item dropdown">
-              <a *ngIf="(afAuth.user | async) as user" [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link dropdown-toggle " id="nav-dropdown" data-toggle="dropdown" aria-expanded="false" >{{ user?.email}}</a>
+              <a *ngIf="(afAuth.user | async) as user" routerLinkActive="router-link-active" class="nav-link dropdown-toggle " id="nav-dropdown" data-toggle="dropdown" aria-expanded="false" >{{ user?.email}}</a>
+
               <div class="dropdown-menu" aria-labelledby="nav-dropdown">
-                  <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="dropdown-item">Sign Out </a>
-                  
+                  <a [routerLink]="['/login']" (click)='logOut()' routerLinkActive="router-link-active" class="dropdown-item">Sign Out </a>
+
               </div>
           </li>
       </ul>
-  </div> 
+
+  </div>
 </nav>
 
 

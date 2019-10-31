@@ -12,21 +12,26 @@ import { getLocaleDayNames } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
   user1;
-  
-  constructor(private auth: AuthService, private afAuth: AngularFireAuth) { }
-  
+
+  constructor(private auth: AuthService, public afAuth: AngularFireAuth) { }
+
   ngOnInit() {
     return this.afAuth.user.pipe(
       map(data => {
-        this.user1 = data
-        console.log("hello")
-  }))
+        this.user1 = data;
+        console.log('hello')
+  }));
+
+
   }
 
-  ngAfterViewInit(){
-   
-}
-  
-  
+  logOut() {
+    this.afAuth.auth.signOut();
+    localStorage.clear();
+  }
+
+
+
+
 
 }

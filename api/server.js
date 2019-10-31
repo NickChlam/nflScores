@@ -16,13 +16,21 @@ const week= require('./routes/week')
 app.use(cors())
 app.use(bodyParser.json())
 
+let conn = 'mongodb://mongo:27017/scores'
+const isWin = process.platform === "win32";
+
+// is windows? 
+if(isWin){
+    conn = 'mongodb://localhost:27017/scores'
+}
+console.log(conn)
 // database connection 
 // TODO : replace connection string with envirnment vars 
-mongoose.connect('mongodb://mongo:27017/scores', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongoDB'))
     .catch('something went wrong')
 
-// establish routes
+// establish routes /
 games(app)
 picks(app)
 results(app)

@@ -1,8 +1,10 @@
 const Game = require('../models/game')
 
 exports.getGames = async function(req, res) {
+    
     const games = await Game.find().select('game week -_id')
-    if(!games) return res.status(404).send('no data')
+    
+    if(!games.length) return res.status(404).send('no data')
     return res.status(200).send(games)
 
 }
