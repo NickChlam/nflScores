@@ -62,3 +62,16 @@ img {
     }
 
 }
+
+@media only screen and (max-width: 500px) {
+  img{
+    width: 20%;
+    height: 20%;
+  }
+  .pick{
+    font-size: 100px;
+  }
+  ul.nav.navbar-nav{
+    display: none;
+  }
+}

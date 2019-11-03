@@ -20,7 +20,8 @@ exports.getWeek = async function(req,res) {
    
 
     // TODO: better logic to determine if date is between tuesday and thursday at 4pm
-        if (date >= week9 && date <= week9.setDate(week9.getDate() + 2) + week9.setUTCHours(22)){
+        if (date >= week9 && date <= (week9.setDate(week9.getDate() + 2) + week9.setUTCHours(22))){
+            
             return res.status(200).send({'week': '9'}) 
         }
         if (date >= week10 && date <= week10.setDate(week10.getDate() + 2) + week10.setUTCHours(22)){

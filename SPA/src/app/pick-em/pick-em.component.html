@@ -1,6 +1,29 @@
+<div class="mod" *ngIf="submitted===true">
+    <div class="modheader">this is a header</div>
+    <div class="mod-content">
+
+      <span class="closeBtn">&times;</span>
+
+      <p>
+          Your Picks :
+      </p>
+      <div class="picks" *ngFor="let item of picks">
+        {{item}}
+      </div>
+
+      <button class="mdlSubmit btn" (click)="submitPick()">Confim</button>
+      <button class="mdlClose btn" (click)="this.submitted=false">Cancel</button>
+
+
+    </div>
+  </div>
 <div class="container">
 
-<button id='fixedbutton' (click)="test()">Pick'Em</button>
+  <!-- modal -->
+
+
+
+<button id='fixedbutton' (click)="submit()">Pick'Em</button>
   <div *ngFor="let game of games; index as i" class="card">
     <div class="card-header">
       {{ game.game[2].headline}}

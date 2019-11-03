@@ -20,6 +20,7 @@ export class PickEmComponent implements OnInit {
   userPick;
   awaySelectedIndex = [];
   homeSelectedIndex = [];
+  submitted: Boolean = false;
 
 
 
@@ -80,28 +81,35 @@ export class PickEmComponent implements OnInit {
     }
 
   }
-  test() {
-    console.log(this.picks)
+  submit() {
+
+
     if (!this.picks.includes(undefined) && this.picks.length === this.games.length && !this.picks.includes(null)) {
       console.log('complete');
-      // send week and picks to database
-      const picked = {
-        week: this.games[0].week,
-        picks: this.picks,
-        user: this.user
-      };
-      console.log(picked);
+      if (this.submitted === false) {
+        this.submitted = true;
+        } else {this.submitted = true; }
 
-      this.gameService.postPick(picked).subscribe( () => {
-        this.alertify.success('Picks Accepted for week ' + this.games[0].week);
-        return this.router.navigate(['/complete']);
-      }, err => this.alertify.error(err));
 
     } else {
        this.alertify.error('please fill out every game')
       console.log('not complete fill out every game');
     }
 
+  }
+  submitPick(){
+     // send week and picks to database
+     const picked = {
+      week: this.games[0].week,
+      picks: this.picks,
+      user: this.user
+    };
+
+
+    this.gameService.postPick(picked).subscribe( () => {
+      this.alertify.success('Picks Accepted for week ' + this.games[0].week);
+      return this.router.navigate(['/complete']);
+    }, err => this.alertify.error(err));
   }
 
 }
