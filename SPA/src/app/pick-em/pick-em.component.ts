@@ -21,7 +21,7 @@ export class PickEmComponent implements OnInit {
   awaySelectedIndex = [];
   homeSelectedIndex = [];
   submitted: Boolean = false;
-
+  
 
 
 
