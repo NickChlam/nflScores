@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var helmet = require('helmet');
 
 // import routes 
 const games = require('./routes/games')
@@ -16,6 +17,7 @@ const mail = require('./routes/mail')
 //middleware
 app.use(cors())
 app.use(bodyParser.json())
+app.use(helmet());
 
 let conn = 'mongodb://mongo:27017/scores'
 const isWin = process.platform === "win32";
@@ -24,7 +26,7 @@ const isWin = process.platform === "win32";
 if(isWin){
     conn = 'mongodb://localhost:27017/scores'
 }
-console.log(conn)
+
 // database connection 
 // TODO : replace connection string with envirnment vars 
 mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
