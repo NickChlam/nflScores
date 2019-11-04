@@ -41,7 +41,7 @@ exports.getWeek = async function(req,res) {
 
     // todays date 
     const date = new Date()
-    date.setDate(date.getDate() +2) 
+   
     
     console.log(date)
     console.log(week10)

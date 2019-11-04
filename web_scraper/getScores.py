@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import sys
 from pymongo import MongoClient
+import datetime
+
 client = MongoClient()
 
 
@@ -34,11 +36,58 @@ class NFLScores:
         name = scores.find_element_by_class_name('wisbb_name').get_attribute('innerHTML')
 
         return {'name': name, 'score': score}
+    
+    def getWeek(self, date) :
+        # TODO import from getGames.py
+        week10 = datetime.datetime(2019, 11, 5).date()
+        week10End = datetime.datetime(2019, 11, 6).date()
+
+        week11 = datetime.datetime(2019, 11, 12).date()
+        week11End = datetime.datetime(2019, 11, 14).date()
+
+        week12 = datetime.datetime(2019, 11, 19).date()
+        week12End = datetime.datetime(2019, 11, 21).date()
+
+        week13 = datetime.datetime(2019, 11, 26).date()
+        week13End = datetime.datetime(2019, 11, 29).date()
+
+        week14 = datetime.datetime(2019, 12, 3).date()
+        week14End = datetime.datetime(2019, 12, 5).date()
+
+        week15 = datetime.datetime(2019, 12, 10).date()
+        week15End = datetime.datetime(2019, 12, 12).date()
+
+        week16 = datetime.datetime(2019, 12, 17).date()
+        week16End = datetime.datetime(2019, 12, 19).date()
+
+        week17 = datetime.datetime(2019, 12, 24).date()
+        week17End = datetime.datetime(2019, 12, 26).date()
+
+
+        if(date >= week10 and date < week10End):
+            return '10'
+        if(date >= week11 and date < week11End):
+            return '11'
+        if(date >= week12 and date < week12End):
+            return '12'
+        if(date >= week13 and date < week13End):
+            return '13'
+        if(date >= week14 and date < week14End):
+            return '14'
+        if(date >= week15 and date < week15End):
+            return '15'
+        if(date >= week16 and date < week16End):
+            return '16'
+        if(date >= week17 and date < week17End):
+            return '17'
+
+        return None
 
 
 scores = NFLScores()
 # TODO: create dict on football season weeks and have a default set to the current week
-week = sys.argv[1]
+CurrentDate = datetime.datetime.today().date()
+week = scores.getWeek(CurrentDate)
 scores.getGames(week)
 
 
@@ -61,5 +110,4 @@ data = posts.find()
 for post in data:
     print(post)
 
-# result = db.posts.delete_many({'author': 'jacl'})
-# print(result.deleted_count)
+

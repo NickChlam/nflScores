@@ -21,7 +21,7 @@ export class PickEmComponent implements OnInit {
   awaySelectedIndex = [];
   homeSelectedIndex = [];
   submitted: Boolean = false;
-  
+
 
 
 
@@ -40,9 +40,14 @@ export class PickEmComponent implements OnInit {
         this.gameService.getGames(week.week)
           .subscribe( (games) => {
             this.games = games;
+            console.log('hello from games')
             console.log(this.games);
           }, err => {
+            // navigate to error page TODO: Add error logging email
+
             console.log(err);
+            return this.router.navigate(['/timesUp']);
+
           });
       }, err => {
         console.log(err);
@@ -54,7 +59,7 @@ export class PickEmComponent implements OnInit {
   }
 
   clicked(game, index) {
-    console.log(game + index);
+
     this.picks[index] = game;
 
     console.log(this.awaySelectedIndex[index] )
