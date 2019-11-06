@@ -221,8 +221,10 @@ db = client.scores
 posts = db.games
 CurrentDate = datetime.datetime.today().date()
 
-week = sys.argv[1]
-#scores.getWeek(CurrentDate)
+week = scores.getWeek(CurrentDate)
+print(week)
+#sys.argv[1]
+#
 
 data = posts.find({'week' : week})
 
