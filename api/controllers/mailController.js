@@ -15,19 +15,19 @@ exports.sendMail = async function(req, res) {
         }
       });
       
-      const mailOptions = {
+    const mailOptions = {
         from: 'pickemRobertHalf@gmail.com',
         to: req.body.to,
         subject: req.body.subject,
         text: req.body.text
       };
       
-      transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.log(error);
         } else {
             res.status(200).send({'info': info.response, 'message' : req.body})
-          console.log('Email sent: ' + info.response);
+            // console.log('Email sent: ' + info.response);
         }
       });
 

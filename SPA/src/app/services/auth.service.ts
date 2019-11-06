@@ -8,6 +8,7 @@ import { switchMap, take } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AlertifyService } from './alertify.service';
 
+// TODO : move to models
 interface User {
   uid: string;
   email: string;
@@ -28,7 +29,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router,
-              private alertify: AlertifyService  ){
+              private alertify: AlertifyService  ) {
       // TODO: refactor - this is bieng executed anytime the service is injected and used
       this.user = this.afAuth.authState
         .pipe(switchMap(user => {

@@ -17,23 +17,22 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-   
+
       return this.af.user.pipe(
         map(data => {
-          if(data){
+          if (data) {
             return true;
+          } else {
+              this.router.navigate(['/home']);
+              return false;
           }
-          else{
-            this.router.navigate(['/home']);
-            return false;
-          }
-      }))
+      }));
     }
   }
 
       // return this.auth.user
       //       .pipe(
-      //         take(1), 
+      //         take(1),
       //         map( user => !!(user && user.catchPhrase)),
       //         tap( (loggedIn) => {
       //           console.log(loggedIn)
@@ -44,6 +43,6 @@ export class AuthGuard implements CanActivate {
       //         }),
       //       )
       //   }
-  
-  
+
+
 

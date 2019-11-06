@@ -34,9 +34,10 @@ export class GameService {
     );
   }
 
+  // TODO: change so that you can pick email or UID
   getPicks(week: String, email?: String, uid?: String){
     return this.http
-      .get(this.baseURL + 'picks/' +  week + '?email=nick.chlam@rht.com')
+      .get(this.baseURL + 'picks/' +  week + '?email=' + email)
       .pipe(
         catchError(this.handleError)
       );

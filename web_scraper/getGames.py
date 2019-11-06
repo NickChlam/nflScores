@@ -126,11 +126,6 @@ class NFLScores:
             # TODO REMOVE PRINT
             print(awayTeamName + ' ' + awayRecord + ' vs. ' + homeTeamName + ' ' + homeRecord)
 
-            
-        
-            
-            
-
     def getMatchup(self, game):
         match = []
         stats = game.find_element_by_class_name('wisbb_matchup')
@@ -218,13 +213,13 @@ class NFLScores:
             return '16'
         if(date >= week17 and date < week17End):
             return '17'
-
+        # if no matches return none
         return None
+
 scores = NFLScores()      
 db = client.scores
 posts = db.games
 CurrentDate = datetime.datetime.today().date()
-
 
 week = scores.getWeek(CurrentDate)
 
@@ -234,8 +229,6 @@ data = posts.find({'week' : week})
 try:
     data.next()
 except Exception as ex:
-    
-    # TODO: create dict on football season weeks and have a default set to the current week
     scores.getGames(week)
     if scores.matches == []:
         scores.getGames(week)
