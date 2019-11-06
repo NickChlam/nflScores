@@ -3,8 +3,8 @@ const Result = require('../models/result')
 
 exports.getResults = async function(req, res){
     // get games scores from database 
-    const results = await Result.find()
-    if (results.length) return res.status(200).send(results).select('-_id')
+    const results = await Result.find().select('-_id')
+    if (results.length) return res.status(200).send(results)
     // if no data return not found 
     return res.status(404).send({'error': true, 'message': 'no data'})
 }

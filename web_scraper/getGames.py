@@ -8,7 +8,7 @@ import platform
 import datetime
 
 # TODO load conn string in env variables 
-conn = 'mongodb://mongo:27017/scores'
+conn = 'mongodb://localhost:27017/scores'
 
 # is platform windows  
 if platform.system() == 'Windows':

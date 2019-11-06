@@ -19,7 +19,8 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet());
 
-let conn = 'mongodb://mongo:27017/scores'
+// TODO: fix docker string and put in env variables 
+let conn = 'mongodb://localhost:27017/scores'
 const isWin = process.platform === "win32";
 
 // is windows? 
