@@ -68,21 +68,21 @@ class NFLScores:
         print(date)
         print(week10)
         if(date >= week10 and date < week10End):
-            return '10'
+            return '9'
         if(date >= week11 and date < week11End):
-            return '11'
+            return '10'
         if(date >= week12 and date < week12End):
-            return '12'
+            return '11'
         if(date >= week13 and date < week13End):
-            return '13'
+            return '12'
         if(date >= week14 and date < week14End):
-            return '14'
+            return '13'
         if(date >= week15 and date < week15End):
-            return '15'
+            return '14'
         if(date >= week16 and date < week16End):
-            return '16'
+            return '15'
         if(date >= week17 and date < week17End):
-            return '17'
+            return '16'
 
         return None
 
@@ -91,23 +91,33 @@ scores = NFLScores()
 # TODO: create dict on football season weeks and have a default set to the current week
 CurrentDate = datetime.datetime.today().date()
 week = scores.getWeek(CurrentDate)
+print(week)
 scores.getGames(week)
 
 
-scores.bot.close()
-scores.bot.quit()
+
 
 db = client.scores
 posts = db.results
 
-for game in scores.winners:
-    post = {
-        "week" : week,
-        "game" : game
-    }
-    save = posts.insert_one(post)
+print(scores.winners)
 
+try :
+    isData = posts.find({'week' : week})
+    isData.next()
+    print('exists')
+except Exception as ex:
 
+    print('saving')
+    for game in scores.winners:
+        post = {
+            "week" : week,
+            "game" : game
+        }
+        save = posts.insert_one(post)
+
+scores.bot.close()
+scores.bot.quit()
 data = posts.find()
 
 for post in data:
