@@ -40,7 +40,7 @@ class NFLScores:
     def getWeek(self, date) :
         # TODO import from getGames.py
         week10 = datetime.datetime(2019, 11, 5).date()
-        week10End = datetime.datetime(2019, 11, 6).date()
+        week10End = datetime.datetime(2019, 11, 7).date()
 
         week11 = datetime.datetime(2019, 11, 12).date()
         week11End = datetime.datetime(2019, 11, 14).date()
@@ -63,7 +63,8 @@ class NFLScores:
         week17 = datetime.datetime(2019, 12, 24).date()
         week17End = datetime.datetime(2019, 12, 26).date()
 
-
+        print(date)
+        print(week10)
         if(date >= week10 and date < week10End):
             return '10'
         if(date >= week11 and date < week11End):
