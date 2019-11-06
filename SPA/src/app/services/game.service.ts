@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { environment } from '../../environments/environment.prod'
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class GameService {
 
 
   constructor(private http: HttpClient) { }
-  baseURL = 'http://localhost:3001/';
+  baseURL = environment.baseURL;
 
   getGames(week: String) {
     const headers = new HttpHeaders()
