@@ -14,7 +14,7 @@ exports.getWeek = async function(req, res) {
     
     week = req.params.week
     // validate id 
-    if (!week) return res.status(404).send('valid id required ')
+    if (!week) return res.status(404).send({"error": true, "message": 'valid id required '})
 
     // get games for week 
     const games = await Game.find({
@@ -22,7 +22,7 @@ exports.getWeek = async function(req, res) {
     }).select('game week -_id')
 
     // reutrn 404 if no games found 
-    if(!games.length) return res.status(404).send(`no games in week ${week}`)
+    if(!games.length) return res.status(404).send({"error": true, "message": `no games in week ${week}`})
 
     //return games for week 
     return res.status(200).send(games)
