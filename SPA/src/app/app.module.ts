@@ -31,7 +31,6 @@ import { LoginComponent } from './login/login.component';
 
 import { TimesUpComponent } from './times-up/times-up.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
-;
 
 
 @NgModule({

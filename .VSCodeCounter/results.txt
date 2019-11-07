@@ -1,0 +1,154 @@
+Date : 2019-11-06 20:19:24
+Directory : c:\Users\nicchl01\Downloads\projects\pickEm
+Total : 98 files,  17926 codes, 263 comments, 699 blanks, all 18888 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |         11 |     14,646 |         38 |          8 |     14,692 |
+| JavaScript |         25 |      1,318 |         56 |        134 |      1,508 |
+| CSS        |         10 |        654 |          7 |        110 |        771 |
+| TypeScript |         27 |        641 |        113 |        211 |        965 |
+| Python     |          4 |        290 |         33 |        110 |        433 |
+| HTML       |         11 |        278 |         13 |         78 |        369 |
+| YAML       |          1 |         35 |          0 |          1 |         36 |
+| Dockerfile |          3 |         33 |          2 |         27 |         62 |
+| Markdown   |          2 |         15 |          0 |         15 |         30 |
+| Properties |          1 |         10 |          1 |          3 |         14 |
+| Ignore     |          3 |          6 |          0 |          2 |          8 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                    | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                       |         98 |     17,926 |        263 |        699 |     18,888 |
+| SPA                                                     |         70 |     14,347 |        187 |        447 |     14,981 |
+| api                                                     |         20 |      3,230 |         41 |        126 |      3,397 |
+| SPA\src                                                 |         47 |      1,595 |        133 |        391 |      2,119 |
+| SPA\src\app                                             |         36 |      1,452 |         50 |        358 |      1,860 |
+| SPA\src\app\pick-em                                     |          3 |        312 |          5 |         88 |        405 |
+| web_scraper                                             |          5 |        310 |         35 |        124 |        469 |
+| SPA\src\app\user-form                                   |          3 |        251 |          8 |         35 |        294 |
+| api\controllers                                         |          6 |        218 |         33 |         71 |        322 |
+| SPA\src\app\login                                       |          3 |        194 |          8 |         34 |        236 |
+| SPA\src\app\times-up                                    |          4 |        151 |          0 |         38 |        189 |
+| SPA\src\app\confirmation                                |          4 |        149 |          1 |         41 |        191 |
+| SPA\src\app\services                                    |          3 |        145 |         10 |         34 |        189 |
+| SPA\src\app\navbar                                      |          3 |        105 |          0 |         32 |        137 |
+| SPA\e2e                                                 |          4 |         57 |          2 |          9 |         68 |
+| api\models                                              |          3 |         40 |          0 |         16 |         56 |
+| api\routes                                              |          6 |         39 |          0 |         20 |         59 |
+| SPA\src\app\models                                      |          4 |         25 |          1 |          4 |         30 |
+| SPA\src\environments                                    |          2 |         24 |         10 |          4 |         38 |
+| SPA\dist                                                |          6 |         23 |          5 |          2 |         30 |
+| SPA\dist\PickEM                                         |          6 |         23 |          5 |          2 |         30 |
+| SPA\e2e\src                                             |          2 |         20 |          0 |          7 |         27 |
+| SPA\src\app\home                                        |          3 |         17 |          1 |         12 |         30 |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| .dockerignore                                           | Ignore     |          3 |          0 |          0 |          3 |
+| README.md                                               | Markdown   |          1 |          0 |          1 |          2 |
+| SPA\.dockerignore                                       | Ignore     |          2 |          0 |          1 |          3 |
+| SPA\.editorconfig                                       | Properties |         10 |          1 |          3 |         14 |
+| SPA\Dockerfile                                          | Dockerfile |          8 |          0 |          7 |         15 |
+| SPA\README.md                                           | Markdown   |         14 |          0 |         14 |         28 |
+| SPA\about.html                                          | HTML       |         13 |          0 |          2 |         15 |
+| SPA\angular.json                                        | JSON       |         96 |         35 |          0 |        131 |
+| SPA\canvasjs.min.js                                     | JavaScript |        900 |         11 |          0 |        911 |
+| SPA\dist\PickEM\index.html                              | HTML       |         18 |          0 |          2 |         20 |
+| SPA\dist\PickEM\main.6975ab175334d614b9e7.js            | JavaScript |          1 |          0 |          0 |          1 |
+| SPA\dist\PickEM\polyfills.bfaf123d018125a5506d.js       | JavaScript |          1 |          0 |          0 |          1 |
+| SPA\dist\PickEM\runtime.a66f828dca56eeb90e02.js         | JavaScript |          1 |          0 |          0 |          1 |
+| SPA\dist\PickEM\scripts.15b61e3f39f999f92eca.js         | JavaScript |          1 |          0 |          0 |          1 |
+| SPA\dist\PickEM\styles.5eea5bc6e1650d935ce7.css         | CSS        |          1 |          5 |          0 |          6 |
+| SPA\e2e\protractor.conf.js                              | JavaScript |         24 |          2 |          2 |         28 |
+| SPA\e2e\src\app.e2e-spec.ts                             | TypeScript |         11 |          0 |          4 |         15 |
+| SPA\e2e\src\app.po.ts                                   | TypeScript |          9 |          0 |          3 |         12 |
+| SPA\e2e\tsconfig.e2e.json                               | JSON       |         13 |          0 |          0 |         13 |
+| SPA\initials.js                                         | JavaScript |         32 |          0 |         13 |         45 |
+| SPA\package-lock.json                                   | JSON       |     11,392 |          0 |          1 |     11,393 |
+| SPA\package.json                                        | JSON       |         55 |          0 |          1 |         56 |
+| SPA\src\app\app.component.css                           | CSS        |          2 |          0 |          2 |          4 |
+| SPA\src\app\app.component.html                          | HTML       |          4 |          1 |          6 |         11 |
+| SPA\src\app\app.component.ts                            | TypeScript |          9 |          0 |          2 |         11 |
+| SPA\src\app\app.module.ts                               | TypeScript |         48 |          2 |         14 |         64 |
+| SPA\src\app\auth-guard.guard.ts                         | TypeScript |         24 |         13 |         12 |         49 |
+| SPA\src\app\confirmation\confirmation.component.css     | CSS        |        108 |          0 |         19 |        127 |
+| SPA\src\app\confirmation\confirmation.component.html    | HTML       |         10 |          1 |          8 |         19 |
+| SPA\src\app\confirmation\confirmation.component.spec.ts | TypeScript |         20 |          0 |          6 |         26 |
+| SPA\src\app\confirmation\confirmation.component.ts      | TypeScript |         11 |          0 |          8 |         19 |
+| SPA\src\app\home\home.component.css                     | CSS        |          0 |          0 |          1 |          1 |
+| SPA\src\app\home\home.component.html                    | HTML       |          1 |          1 |          3 |          5 |
+| SPA\src\app\home\home.component.ts                      | TypeScript |         16 |          0 |          8 |         24 |
+| SPA\src\app\login\login.component.css                   | CSS        |         99 |          0 |          7 |        106 |
+| SPA\src\app\login\login.component.html                  | HTML       |         39 |          3 |         10 |         52 |
+| SPA\src\app\login\login.component.ts                    | TypeScript |         56 |          5 |         17 |         78 |
+| SPA\src\app\models\game.ts                              | TypeScript |          0 |          1 |          1 |          2 |
+| SPA\src\app\models\offices.ts                           | TypeScript |          6 |          0 |          1 |          7 |
+| SPA\src\app\models\user.ts                              | TypeScript |          7 |          0 |          0 |          7 |
+| SPA\src\app\models\weeks.ts                             | TypeScript |         12 |          0 |          2 |         14 |
+| SPA\src\app\navbar\navbar.component.css                 | CSS        |         66 |          0 |         12 |         78 |
+| SPA\src\app\navbar\navbar.component.html                | HTML       |         13 |          0 |          8 |         21 |
+| SPA\src\app\navbar\navbar.component.ts                  | TypeScript |         26 |          0 |         12 |         38 |
+| SPA\src\app\pick-em\pick-em.component.css               | CSS        |        159 |          1 |         42 |        202 |
+| SPA\src\app\pick-em\pick-em.component.html              | HTML       |         65 |          1 |         16 |         82 |
+| SPA\src\app\pick-em\pick-em.component.ts                | TypeScript |         88 |          3 |         30 |        121 |
+| SPA\src\app\routes.ts                                   | TypeScript |         16 |          0 |          4 |         20 |
+| SPA\src\app\services\alertify.service.ts                | TypeScript |         29 |          1 |          5 |         35 |
+| SPA\src\app\services\auth.service.ts                    | TypeScript |         54 |          4 |         16 |         74 |
+| SPA\src\app\services\game.service.ts                    | TypeScript |         62 |          5 |         13 |         80 |
+| SPA\src\app\times-up\times-up.component.css             | CSS        |        109 |          0 |         19 |        128 |
+| SPA\src\app\times-up\times-up.component.html            | HTML       |         11 |          0 |          8 |         19 |
+| SPA\src\app\times-up\times-up.component.spec.ts         | TypeScript |         20 |          0 |          6 |         26 |
+| SPA\src\app\times-up\times-up.component.ts              | TypeScript |         11 |          0 |          5 |         16 |
+| SPA\src\app\user-form\user-form.component.css           | CSS        |        107 |          0 |          8 |        115 |
+| SPA\src\app\user-form\user-form.component.html          | HTML       |         86 |          6 |         13 |        105 |
+| SPA\src\app\user-form\user-form.component.ts            | TypeScript |         58 |          2 |         14 |         74 |
+| SPA\src\environments\environment.prod.ts                | TypeScript |         12 |          0 |          1 |         13 |
+| SPA\src\environments\environment.ts                     | TypeScript |         12 |         10 |          3 |         25 |
+| SPA\src\index.html                                      | HTML       |         18 |          0 |          2 |         20 |
+| SPA\src\karma.conf.js                                   | JavaScript |         28 |          2 |          1 |         31 |
+| SPA\src\main.ts                                         | TypeScript |          9 |          0 |          4 |         13 |
+| SPA\src\polyfills.ts                                    | TypeScript |          2 |         63 |         16 |         81 |
+| SPA\src\styles.css                                      | CSS        |          3 |          1 |          0 |          4 |
+| SPA\src\test.ts                                         | TypeScript |         13 |          4 |          4 |         21 |
+| SPA\src\tsconfig.app.json                               | JSON       |         10 |          3 |          0 |         13 |
+| SPA\src\tsconfig.spec.json                              | JSON       |         19 |          0 |          1 |         20 |
+| SPA\src\tslint.json                                     | JSON       |         17 |          0 |          1 |         18 |
+| SPA\test.js                                             | JavaScript |          0 |          0 |          1 |          1 |
+| SPA\tsconfig.json                                       | JSON       |         20 |          0 |          1 |         21 |
+| SPA\tslint.json                                         | JSON       |        130 |          0 |          1 |        131 |
+| api\.dockerignore                                       | Ignore     |          1 |          0 |          1 |          2 |
+| api\Dockerfile                                          | Dockerfile |          5 |          0 |          6 |         11 |
+| api\controllers\gamesController.js                      | JavaScript |         15 |          5 |         12 |         32 |
+| api\controllers\mailController.js                       | JavaScript |         40 |          3 |          7 |         50 |
+| api\controllers\picksController.js                      | JavaScript |         53 |         11 |         15 |         79 |
+| api\controllers\resultsController.js                    | JavaScript |         11 |          4 |          3 |         18 |
+| api\controllers\weekController.js                       | JavaScript |         61 |          3 |         22 |         86 |
+| api\controllers\winnerController.js                     | JavaScript |         38 |          7 |         12 |         57 |
+| api\models\game.js                                      | JavaScript |         12 |          0 |          9 |         21 |
+| api\models\pick.js                                      | JavaScript |         16 |          0 |          4 |         20 |
+| api\models\result.js                                    | JavaScript |         12 |          0 |          3 |         15 |
+| api\package-lock.json                                   | JSON       |      2,871 |          0 |          1 |      2,872 |
+| api\package.json                                        | JSON       |         23 |          0 |          1 |         24 |
+| api\routes\games.js                                     | JavaScript |          7 |          0 |          6 |         13 |
+| api\routes\mail.js                                      | JavaScript |          5 |          0 |          1 |          6 |
+| api\routes\picks.js                                     | JavaScript |          8 |          0 |          3 |         11 |
+| api\routes\results.js                                   | JavaScript |          7 |          0 |          3 |         10 |
+| api\routes\week.js                                      | JavaScript |          5 |          0 |          1 |          6 |
+| api\routes\winner.js                                    | JavaScript |          7 |          0 |          6 |         13 |
+| api\server.js                                           | JavaScript |         33 |          8 |         10 |         51 |
+| docker-compose.yml                                      | YAML       |         35 |          0 |          1 |         36 |
+| web_scraper\Dockerfile                                  | Dockerfile |         20 |          2 |         14 |         36 |
+| web_scraper\data.py                                     | Python     |          7 |          0 |          3 |         10 |
+| web_scraper\getGames.py                                 | Python     |        183 |         22 |         60 |        265 |
+| web_scraper\getScores.py                                | Python     |         89 |          3 |         35 |        127 |
+| web_scraper\getWinner.py                                | Python     |         11 |          8 |         12 |         31 |
+| Total                                                   |            |     17,926 |        263 |        699 |     18,888 |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
