@@ -92,6 +92,8 @@ scores = NFLScores()
 CurrentDate = datetime.datetime.today().date()
 week = scores.getWeek(CurrentDate)
 print(week)
+if week == None:
+    quit()
 scores.getGames(week)
 
 
