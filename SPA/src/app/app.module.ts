@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 // components
 import { AppComponent } from './app.component';
@@ -57,7 +57,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     HttpClientModule
 
   ],
-  providers: [ AuthService, AuthGuard, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [ AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
