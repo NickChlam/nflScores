@@ -20,13 +20,15 @@ app.use(bodyParser.json())
 app.use(helmet());
 
 // TODO: fix docker string and put in env variables 
-let conn = 'mongodb://localhost:27017/scores'
+let conn = 'mongodb://mongo:27017/scores'
 const isWin = process.platform === "win32";
 
 // is windows? 
 if(isWin){
     conn = 'mongodb://localhost:27017/scores'
 }
+
+console.log(process.env)
 
 // database connection 
 // TODO : replace connection string with envirnment vars 

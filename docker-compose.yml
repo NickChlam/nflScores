@@ -8,8 +8,7 @@ services:
       - '3001:3001'
     links:
       - mongo
-    volumes:
-      - .\api:/app
+    
     entrypoint: npm start
   mongo:
     container_name: mongo
@@ -25,8 +24,7 @@ services:
       - '49153:49153'
     links: 
       - app
-    volumes: 
-      - .\SPA:/usr/src/app
+    
     entrypoint: ng serve --host 0.0.0.0 --poll 1
   python:
     container_name: web_scraper

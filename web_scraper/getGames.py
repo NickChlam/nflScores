@@ -8,7 +8,7 @@ import platform
 import datetime
 
 # TODO load conn string in env variables 
-conn = 'mongodb://localhost:27017/scores'
+conn = 'mongodb://mongo:27017/scores'
 
 # is platform windows  
 if platform.system() == 'Windows':
@@ -225,6 +225,8 @@ CurrentDate = datetime.datetime.today().date()
 
 week = scores.getWeek(CurrentDate)
 print(week)
+if week == None :
+    quit()
 #sys.argv[1]
 #
 
@@ -253,7 +255,7 @@ except Exception as ex:
     quit()
 
 print(f'data for week {week} already exists')   
-
+quit()
 
 # bills_post = posts.find()
 
