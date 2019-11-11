@@ -5,6 +5,32 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var helmet = require('helmet');
 
+//swagger
+const swaggerJsDoc= require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+// https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+    swaggerDefinition : {
+        swagger: '2.0',
+        info : {
+            title : "nflPickEm API",
+            description : "PickEm game API information",
+            contact : {
+                name : 'Nick Chlam',
+                email : 'chlam2003@gmail.com'
+            },
+            servers: ['http://localhost:3001']
+        }
+    },
+    // where are the api's
+    apis: ['./routes/*.js'],
+    basePath: '/'
+}
+
+const swaggerDocs= swaggerJsDoc(swaggerOptions)
+// set up and serve
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+
 // import routes 
 const games = require('./routes/games')
 const picks = require('./routes/picks')
@@ -20,7 +46,7 @@ app.use(bodyParser.json())
 app.use(helmet());
 
 // TODO: fix docker string and put in env variables 
-let conn = 'mongodb://mongo:27017/scores'
+let conn = 'mongodb://local:27017/scores'
 const isWin = process.platform === "win32";
 
 // is windows? 
@@ -28,7 +54,7 @@ if(isWin){
     conn = 'mongodb://localhost:27017/scores'
 }
 
-console.log(process.env)
+
 
 // database connection 
 // TODO : replace connection string with envirnment vars 
@@ -36,7 +62,9 @@ mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongoDB'))
     .catch('something went wrong')
 
-// establish routes /
+// routes
+
+
 games(app)
 picks(app)
 results(app)

@@ -3,10 +3,9 @@ const Joi = require('@hapi/joi');
 
 
 exports.getPicks = async function(req, res) {
-    console.log('did it toos')
-    const picks = await Pick.find()
-        .select('week picks user -_id');
-    if(!picks) return res.status(404).send('no data')
+    
+    const picks = await Pick.find().select('week picks user -_id');
+    if(!picks.length) return res.status(204).send({'error': true, 'message': 'no Picks were found'})
     
     return res.status(200).send(picks)
 
@@ -21,21 +20,24 @@ exports.getPickByWeek = async function(req, res) {
     if(uid === undefined && email === undefined){
         const picks = await Pick.find({ week: req.params.week})
             .select('week picks user -_id');
-        if(!picks) return res.status(404).send('no data')
+     
+        
+        if(!picks.length ) return res.status(204).send({})
         return res.status(200).send(picks)
+       
     }
     if(email){
         const picks = await Pick.find({ week: req.params.week})
             .where('user.email', email)
             .select('week picks user');
-        if(!picks.length) return res.status(404).send('no data')
+        if(!picks.length) return res.status(204).send({})
         return res.status(200).send(picks)
     }
     if(uid){
         const picks = await Pick.find({ week: req.params.week})
             .where('user.uid', uid)
             .select('week picks user');
-        if(!picks.length) return res.status(404).send('no data')
+        if(!picks.length) return res.status(204).send({})
         return res.status(200).send(picks)
     }
 

@@ -2,7 +2,7 @@ const Joi = require('@hapi/joi')
 const nodemailer = require('nodemailer')
 
 exports.sendMail = async function(req, res) {
-  console.log(req.body)
+  
   const { error } = validateMessage(req.body)
     // if error 400 and send error
   if(error) res.status(400).send({"error": true, "message": `${error}`})
