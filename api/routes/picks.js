@@ -78,4 +78,6 @@ module.exports = function(app) {
 *   responses: 
 *       '200':
 *           description: everything is ok
+*       '204':
+*           description: no data for picks
 */

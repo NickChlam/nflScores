@@ -13,11 +13,12 @@ exports.getPicks = async function(req, res) {
 
 exports.getPickByWeek = async function(req, res) {
  
-    const uid = req.query.uid
+    const uid = req.query.uid 
     const email = req.query.email
     
     // TODO : learn how to use the mongoose or - not DRY 
     if(uid === undefined && email === undefined){
+    // TODO : error out if something goes wrong 
         const picks = await Pick.find({ week: req.params.week})
             .select('week picks user -_id');
      
