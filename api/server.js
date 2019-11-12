@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var cors = require('cors');
-var helmet = require('helmet');
+//var helmet = require('helmet');
 
 //swagger
 const swaggerJsDoc= require('swagger-jsdoc');
