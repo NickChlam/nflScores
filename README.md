@@ -22,7 +22,7 @@ In the SPA, run npm install. The build artifacts will be stored in the `dist/` d
 in the web_scraper folder to scrape the current week of games ( only available on tuesdays to thursday everyweek ) run python getGames.py
 To get last weeks scores, ( only available tuesday to thursday every week ) run python getScores.py
 
-*** python 3 or greater must be installed along with selinium, chrome driver, and pymongo ***
+*** python 3 or greater must be installed along with selenium, chrome driver, and pymongo ***
 
 python can be installed : https://www.python.org/downloads/
 
