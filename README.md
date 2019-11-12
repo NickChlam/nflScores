@@ -18,6 +18,22 @@ You also must have mongo installed locally on your machine for the database to w
 ## Build SPA 
 In the SPA, run npm install. The build artifacts will be stored in the `dist/` directory. Use the `ng build --prod` flag for a new production build. 
 
+## web_scraper
+in the web_scraper folder to scrape the current week of games ( only available on tuesdays to thursday everyweek ) run python getGames.py
+To get last weeks scores, ( only available tuesday to thursday every week ) run python getScores.py
+
+*** python 3 or greater must be installed along with selinium, chrome driver, and pymongo ***
+
+python can be installed : https://www.python.org/downloads/
+
+selenium can be installed: https://selenium-python.readthedocs.io/installation.html
+
+pymongo can be installed: https://api.mongodb.com/python/current/installation.html
+
+chromedriver can be installed: https://chromedriver.chromium.org/downloads *** make sure to install the version for the chrome version you have ***
+
+
+
 ## Docker build 
 Install docker desktop on your machine and configure it to allow shared drives. You can download Docker Desktop here: https://www.docker.com/products/docker-desktop
 
