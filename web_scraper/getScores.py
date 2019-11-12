@@ -4,7 +4,8 @@ import sys
 from pymongo import MongoClient
 import datetime
 
-client = MongoClient()
+conn = 'mongodb://localhost:27017/scores'
+client = MongoClient(conn)
 
 
 class NFLScores:
