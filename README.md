@@ -40,6 +40,8 @@ Install docker desktop on your machine and configure it to allow shared drives. 
 move to the root directory of nflScores and run docker-compose build. This will run the docker-compose.yml script and create the necessary containers to run the application. 
 To run: in the root directory of the nflScores : docker-compose up OR docker-compose start.  Then browse to `http://localhost:4200` for the SPA and `http://localhost:3001` for the api.
 
+*** to run this in docker the connection strings that refer to mongo will need to be changed from `mongodb://localhost:27017/scores` to `mongodb://mongo:27017/scores`
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
