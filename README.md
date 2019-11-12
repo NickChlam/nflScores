@@ -1,6 +1,6 @@
 # NFL Scores
 
-This project is a pet project that uses a node API running a mongo database with an Angular front end to automate a weekly pickEm game.  What is the PickEm game you ask? A pickEm is quite simple, you pick the winner of each matchup and submit.  The individual that guesses the highest number of correct matchups wins. 
+This project uses a node API running a mongo database with an Angular front end to automate a weekly pickEm game powered by python.  What is the PickEm game you ask? A pickEm is quite simple, you pick the winner of each matchup and submit.  The individual that guesses the highest number of correct matchups wins. 
 
 ## Development server
 
