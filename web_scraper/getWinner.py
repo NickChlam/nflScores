@@ -1,7 +1,7 @@
 import requests
 import json 
 
-data = requests.get('http://localhost:3001/winner/wins/9')
+data = requests.get('http://localhost:3001/winner/wins/10')
 
 
 text = ''
@@ -23,7 +23,7 @@ for d in picks:
 
 # email list of wins for each pick 
 email = {
-    'to': 'chlam2003@gmail.com',
+    'to': 'Nick.Chlam@rht.com',
     'text': text,
     'subject': 'winners'}
 
