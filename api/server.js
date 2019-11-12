@@ -46,7 +46,7 @@ app.use(bodyParser.json())
 app.use(helmet());
 
 // TODO: fix docker string and put in env variables 
-let conn = 'mongodb://local:27017/scores'
+let conn = 'mongodb://localhost:27017/scores'
 const isWin = process.platform === "win32";
 
 // is windows? 
@@ -63,7 +63,6 @@ mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch('something went wrong')
 
 // routes
-
 
 games(app)
 picks(app)
