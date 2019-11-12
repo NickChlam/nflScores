@@ -19,7 +19,7 @@ You also must have mongo installed locally on your machine for the database to w
 In the SPA, run npm install. The build artifacts will be stored in the `dist/` directory. Use the `ng build --prod` flag for a new production build. 
 
 ## Docker build 
-install docker desktop on your machine and configure it to allow shared drives. You can download Docker Desktop here: https://www.docker.com/products/docker-desktop
+Install docker desktop on your machine and configure it to allow shared drives. You can download Docker Desktop here: https://www.docker.com/products/docker-desktop
 
 move to the root directory of nflScores and run docker-compose build. This will run the docker-compose.yml script and create the necessary containers to run the application. 
 To run: in the root directory of the nflScores : docker-compose up OR docker-compose start.  Then browse to `http://localhost:4200` for the SPA and `http://localhost:3001` for the api.
@@ -29,6 +29,7 @@ To run: in the root directory of the nflScores : docker-compose up OR docker-com
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 To get more help with node use node --help or check out the docs at `https://nodejs.org/`
+
 To get more help with docker use docker --help or check out the docs at `https://docs.docker.com/`
 
 
