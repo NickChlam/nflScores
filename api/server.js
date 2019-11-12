@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var cors = require('cors');
-//var helmet = require('helmet');
+var helmet = require('helmet');
 
 //swagger
 const swaggerJsDoc= require('swagger-jsdoc');
@@ -43,8 +43,8 @@ const mail = require('./routes/mail')
 
 //middleware
 app.use(cors())
-//app.use(bodyParser.json())
-//app.use(helmet());
+app.use(bodyParser.json())
+app.use(helmet());
 
 // TODO: fix docker string and put in env variables 
 let conn = 'mongodb://localhost:27017/scores'
