@@ -43,8 +43,8 @@ const mail = require('./routes/mail')
 
 //middleware
 app.use(cors())
-app.use(bodyParser.json())
-app.use(helmet());
+//app.use(bodyParser.json())
+//app.use(helmet());
 
 // TODO: fix docker string and put in env variables 
 let conn = 'mongodb://localhost:27017/scores'
