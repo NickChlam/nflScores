@@ -23,30 +23,13 @@ const swaggerOptions = {
         }
     },
     // where are the api's
-    apis: ['server.js'],
+    apis: ['./routes/*.js'],
     basePath: '/'
 }
 
 const swaggerDocs= swaggerJsDoc(swaggerOptions)
 // set up and serve
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
-
-/**
-* @swagger
-* /picks:
-*  get:
-*    description: get all Picks
-*    produces: 
-*      - application/json
-*    consumes:
-*      - application/json
-*    responses:
-*      '404':
-*          description: No content, no Picks were found 
-*      '200':
-*          description: Picks found. return all Picks  
-*/
-
 
 
 // import routes 
