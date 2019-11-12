@@ -4,7 +4,7 @@ This project uses a node API running a mongo database with an Angular front end 
 
 ## Development server
 
-Run `npm start` for a dev server in the api folder. Navigate to `http://localhost:3100/api-docs` to view documentation. The app will automatically reload if you change any of the source files courtesy of nodemon.
+Run `npm start` for a dev server in the api folder. Navigate to `http://localhost:3001/api-docs` to view documentation. The app will automatically reload if you change any of the source files courtesy of nodemon.
 
 Run `ng serve` to locally run the SPA using the angular cli version 6.0.8. you can install angular by running npm install -g @angular/cli@6.0.8 
 
