@@ -29,7 +29,7 @@ ADD getGames.py ./
 
 EXPOSE 27017
 
-CMD [ "python3.7", "./getGames.py", "9" ]
+CMD [ "python3.7", "./getGames.py", "11" ]
 
 
 
