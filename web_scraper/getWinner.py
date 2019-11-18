@@ -1,7 +1,7 @@
 import requests
 import json 
 
-data = requests.get('http://localhost:3001/winner/wins/10')
+data = requests.get('http://localhost:3001/winner/wins/11')
 
 
 text = ''
