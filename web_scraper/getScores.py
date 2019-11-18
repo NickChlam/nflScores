@@ -29,8 +29,13 @@ class NFLScores:
         games = bot.find_elements_by_class_name('wisbb_final')
         
         for game in games:
-            info = self.getWinningTeam(game)
+            try:
+                info = self.getWinningTeam(game)
             
+            except Exception as ex:
+                print(ex)
+            
+            print(info)
             self.winners.append(info)
 
     def getWinningTeam(self, game):
@@ -48,22 +53,22 @@ class NFLScores:
         week11 = datetime.datetime(2019, 11, 12).date()
         week11End = datetime.datetime(2019, 11, 14).date()
 
-        week12 = datetime.datetime(2019, 11, 19).date()
+        week12 = datetime.datetime(2019, 11, 18).date()
         week12End = datetime.datetime(2019, 11, 21).date()
 
-        week13 = datetime.datetime(2019, 11, 26).date()
+        week13 = datetime.datetime(2019, 11, 25).date()
         week13End = datetime.datetime(2019, 11, 29).date()
 
-        week14 = datetime.datetime(2019, 12, 3).date()
+        week14 = datetime.datetime(2019, 12, 2).date()
         week14End = datetime.datetime(2019, 12, 5).date()
 
-        week15 = datetime.datetime(2019, 12, 10).date()
+        week15 = datetime.datetime(2019, 12, 9).date()
         week15End = datetime.datetime(2019, 12, 12).date()
 
-        week16 = datetime.datetime(2019, 12, 17).date()
+        week16 = datetime.datetime(2019, 12, 16).date()
         week16End = datetime.datetime(2019, 12, 19).date()
 
-        week17 = datetime.datetime(2019, 12, 24).date()
+        week17 = datetime.datetime(2019, 12, 23).date()
         week17End = datetime.datetime(2019, 12, 26).date()
 
         print(date)
@@ -93,9 +98,9 @@ scores = NFLScores()
 CurrentDate = datetime.datetime.today().date()
 week = scores.getWeek(CurrentDate)
 print(week)
-if week == None:
-    quit()
-scores.getGames(week)
+# if week == None:
+#     quit()
+scores.getGames('11')
 
 
 
@@ -105,6 +110,19 @@ posts = db.results
 
 print(scores.winners)
 
+# see if data exisits for current week and delete if it exists.  
+# we run on monday to see if we can get ties then run tuesday for final winner 
+try :
+    isData = posts.find({'week' : week})
+    isData.next()
+    print('exists now deleting')
+    posts.delete_many({"week" : week})
+    print('printing')
+    for post in isData:
+        print(post)
+except Exception as ex:
+    print('data doesnt exist ')
+# TODO consider reviseing.  Use the above try catch this is redundant 
 try :
     isData = posts.find({'week' : week})
     isData.next()

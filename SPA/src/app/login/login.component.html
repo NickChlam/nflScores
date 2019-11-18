@@ -3,6 +3,12 @@
     <div *ngIf="afAuth.user | async as user; else showLogin">
         <h1>Hello {{ user.displayName }}!</h1>
         <button (click)="logout()">Logout</button>
+        
+
+        <!-- <video class="minute_apv" width="320" height="240" controls>
+          <source src="https://apv-static.minute.ly/videos/v-0e417e64-8940-491a-749638-b17f-fed9f2548606-s189.0-198.0m.mp4" >
+        </video>      -->
+        
        </div>
 
 <ng-template class="ng-template" #showLogin>

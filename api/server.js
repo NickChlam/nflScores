@@ -1,33 +1,17 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-var bodyParser = require('body-parser');
-var cors = require('cors');
-var helmet = require('helmet');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
+const config = require('config')
+const option = require('./config/swaggerOptions')
 
 //swagger
 const swaggerJsDoc= require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 // https://swagger.io/specification/#infoObject
-const swaggerOptions = {
-    swaggerDefinition : {
-        swagger: '2.0',
-        info : {
-            title : "nflPickEm API",
-            description : "PickEm game API information",
-            contact : {
-                name : 'Nick Chlam',
-                email : 'chlam2003@gmail.com'
-            },
-            servers: ['http://localhost:3001']
-        }
-    },
-    // where are the api's
-    apis: ['./routes/*.js'],
-    basePath: '/'
-}
-
-const swaggerDocs= swaggerJsDoc(swaggerOptions)
+const swaggerDocs= swaggerJsDoc(option.swaggerOptions)
 // set up and serve
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
@@ -45,6 +29,10 @@ const mail = require('./routes/mail')
 app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet());
+
+if(app.get('env') === 'development'){
+    console.log('app in development ')
+}
 
 // TODO: fix docker string and put in env variables 
 let conn = 'mongodb://localhost:27017/scores'
@@ -64,7 +52,6 @@ mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch('something went wrong')
 
 // routes
-
 games(app)
 picks(app)
 results(app)
@@ -72,10 +59,15 @@ winner(app)
 week(app)
 mail(app)
 
-// listen! 
 
+// config
 const port = process.env.PORT || 3001
+console.log("Application name: " + config.get('name'))
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
+console.log(`app: ${app.get('env')}`)
 
+
+// listen! 
 app.listen( port, () => {
     console.log(`started listening on port ${port}`)
 })
