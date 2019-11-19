@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-
+// ?(rht|roberthalf|tcg|officeteam|accounttemps|roberthalflegal|rhmr)\
     this.loginForm = this.fb.group({
       'email': ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(rht|roberthalf|tcg)\.com$')
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.).com$')
         // TODO: Create Custom @rht email validator
         ]
       ],
