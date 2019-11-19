@@ -30,9 +30,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet());
 
-if(app.get('env') === 'development'){
-    console.log('app in development ')
-}
+
 
 // TODO: fix docker string and put in env variables 
 let conn = 'mongodb://localhost:27017/scores'
