@@ -100,7 +100,7 @@ week = scores.getWeek(CurrentDate)
 print(week)
 # if week == None:
 #     quit()
-scores.getGames('11')
+scores.getGames(week)
 
 
 
