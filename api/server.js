@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const config = require('config')
+
 const option = require('./config/swaggerOptions')
 
 //swagger
@@ -62,7 +62,7 @@ mail(app)
 
 // config
 const port = process.env.PORT || 3001
-console.log("Application name: " + config.get('name'))
+
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 console.log(`app: ${app.get('env')}`)
 
