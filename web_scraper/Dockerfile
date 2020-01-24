@@ -18,7 +18,7 @@ RUN wget https://dl.google.com/linux/linux_signing_key.pub \
     && apt update -y \
     && apt-get install google-chrome-stable -y
 
-RUN wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
+RUN wget https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip
 RUN apt-get install unzip -y
 RUN unzip chromedriver_linux64.zip \
     && mv chromedriver /usr/bin/chromedriver 
