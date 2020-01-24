@@ -47,7 +47,7 @@ if(isWin){
 // TODO : replace connection string with envirnment vars 
 mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongoDB'))
-    .catch('something went wrong')
+    .catch(err => console.log(err))
 
 // routes
 games(app)
